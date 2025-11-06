@@ -1,5 +1,10 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 
+st.set_page_config(
+    page_title="App de Conjuntos",
+    page_icon="🧮",
+)
 
 defecto = {
     "logueado": False,
@@ -41,9 +46,21 @@ opciones = ["Inicio", "Establecer Subconjuntos","Resultados","Cerrar Sesion"]
 if rol != "admin":
     opciones = ["Inicio", "Establecer Subconjuntos","Resultados","Cerrar Sesion"]
 
-pagina = st.sidebar.radio("Menu de navegacion", opciones)
-st.session_state["pagina"] = pagina
 
+# Menu lateral con iconos 
+with st.sidebar:
+    pagina = option_menu(
+        menu_title="Menu de navegacion",
+        options=opciones,
+        icons=["house", "folder", "bar-chart", "box-arrow-right"],
+        menu_icon="app-indicator",
+        default_index=0
+    )
+
+    st.session_state["pagina"] = pagina
+
+
+# Mostrar la pagina seleccionada
 match pagina:
     case "Inicio":
         pagina_principal()

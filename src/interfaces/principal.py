@@ -13,4 +13,4 @@ def pagina_principal():
 
     conjunto = st.session_state.get("conjunto_principal")
     if conjunto is not None:
-        st.write("Conjunto principal actual", conjunto)
+        st.write(f"Conjunto principal: {conjunto}")
