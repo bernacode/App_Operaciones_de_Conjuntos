@@ -1,8 +1,8 @@
 import streamlit as st
 
 def pagina_principal():
-    st.title("Bienvenido a la app de Operaciones de Conjuntos")
-
+    st.title(" 🏠 Ventana Principal")
+    st.caption("👇 Bienvenido a la app de operaciones de conjuntos")
     st.markdown("""Esta aplicación permite trabajar con conjuntos y subconjuntos. 
     Funciona de la siguiente manera:
     

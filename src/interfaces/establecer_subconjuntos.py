@@ -17,8 +17,11 @@ def establecer_subconjuntos():
     rol = st.session_state.get("rol","usuario")
 
     # Conjunto_Principal 
-    if "conjunto_principal" not in st.session_state:
-        st.session_state["conjunto_principal"] = []
+    if "conjunto_principal" not in st.session_state or st.session_state["conjunto_principal"] is None:
+        if rol == "admin":
+            st.session_state["conjunto_principal"] = []
+        else:
+            st.session_state["conjunto_principal"] = np.random.choice(np.arange(1,100),size=50,replace=False)
 
     if rol == "admin":
         st.write("Admin: puedes modificar el conjunto principal")
@@ -40,9 +43,6 @@ def establecer_subconjuntos():
         except ValueError:
             st.error("El conjunto principal tiene elementos no validos")
             return
-    else:
-
-        st.session_state["conjunto_principal"] = np.random.choice(np.arange(1,100),size=50,replace=False)
     
     conjunto = st.session_state["conjunto_principal"]
     st.write(f"Conjunto principal: {conjunto}")

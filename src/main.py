@@ -22,6 +22,7 @@ for key, valores in defecto.items():
 from interfaces.login import login
 from interfaces.establecer_subconjuntos import establecer_subconjuntos
 from interfaces.principal import pagina_principal
+from interfaces.resultados import resultados
 
 def cargar_css(ruta_archivo):
     with open(ruta_archivo,"r") as f:
@@ -42,7 +43,12 @@ st.sidebar.title(f"Bienvenido, {usuario}👋")
 st.sidebar.write(f"**Rol:** {rol.capitalize()}")
 
 
-opciones = ["Inicio", "Establecer Subconjuntos","Resultados","Cerrar Sesion"]
+opciones = [
+    "Inicio", 
+    "Establecer Subconjuntos",
+    "Resultados",
+    "Cerrar Sesion"]
+
 if rol != "admin":
     opciones = ["Inicio", "Establecer Subconjuntos","Resultados","Cerrar Sesion"]
 
@@ -67,7 +73,7 @@ match pagina:
     case "Establecer Subconjuntos":
         establecer_subconjuntos()
     case "Resultados":
-        print("Por establecer")
+        resultados()
     case "Cerrar Sesion":
         for key, valor in defecto.items():
             st.session_state[key] = valor

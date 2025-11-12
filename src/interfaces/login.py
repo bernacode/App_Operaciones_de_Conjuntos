@@ -9,20 +9,22 @@ def do_nothing():
 
 
 def login():
-    st.title("Login")
+    st.title("🔐 Login")
+    st.caption("Accede a la aplicación para gestionar tus conjuntos y operaciones.")
+
     usuario = st.text_input(
-        "Usuario",
+        "👤 Usuario",
         key="login_usuario",
         on_change=do_nothing
     )
     password = st.text_input(
-        "Contraseña",
+        "🔑 Contraseña",
         type="password",
         key="login_password", 
         on_change=do_nothing
     )
 
-    if st.button("Entrar"):
+    if st.button("🚪 Iniciar sesion"):
         df_usuarios = pd.read_csv(ruta_csv)
         filtrar = df_usuarios[df_usuarios["usuario"] == usuario]
 
@@ -30,9 +32,9 @@ def login():
             st.session_state["logueado"] = True
             st.session_state["usuario"] = usuario
             st.session_state["rol"] = filtrar.iloc[0]["rol"]
-            st.success(f"Bienvenido {usuario}")
+            st.success(f"✅ Acceso concedido. Bienvenido a la aplicación {usuario}.")
 
             st.rerun()
 
         else:
-            st.error("Usuario o contraseña incorrectos")
+            st.error("❌ Usuario o contraseña incorrectos. Intenta de nuevo.")
