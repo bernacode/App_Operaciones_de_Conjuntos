@@ -1,8 +1,14 @@
 import streamlit as st
 import pandas as pd
 import os
+import sys
 
-ruta_csv = "data/usuarios.csv"
+
+# Definir la carpeta base, funcione incluso desde .bat o PyInstaller
+BASE_DIR = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+
+# Ruta absoluta al CSV de usuarios
+usuarios_path = os.path.join(BASE_DIR, '..', 'data', 'usuarios.csv')  # '..' porque login.py está en interfaces/
 
 def do_nothing():
     pass
@@ -25,7 +31,7 @@ def login():
     )
 
     if st.button("🚪 Iniciar sesion"):
-        df_usuarios = pd.read_csv(ruta_csv)
+        df_usuarios = pd.read_csv(usuarios_path)
         filtrar = df_usuarios[df_usuarios["usuario"] == usuario]
 
         if not filtrar.empty and filtrar.iloc[0]["password"] == password:

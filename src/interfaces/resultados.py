@@ -1,8 +1,6 @@
 import streamlit as st
 import random
-import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib_venn import venn3,venn2
 
 from logic.operaciones import realizar_operacion,concepto_clave
 
@@ -15,7 +13,7 @@ def resultados():
         "Complemento"
     ]
 
-    st.title("📊 Resultados de Operaciones de Conjuntos")
+    st.title("🧩 Resultados de Operaciones de Conjuntos")
     st.markdown("Aquí se muestran los resultados de las operaciones aplicadas a tus subconjuntos de forma aleatoria.")
 
     if "subconjuntos" not in st.session_state or st.session_state["subconjuntos"] is None or "conjunto_principal" not in st.session_state or st.session_state["conjunto_principal"] is None:

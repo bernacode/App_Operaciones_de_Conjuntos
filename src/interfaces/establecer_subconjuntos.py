@@ -54,33 +54,39 @@ def establecer_subconjuntos():
     sub4 = st.text_input("Subconjunto 4", key="sub4")
 
     if st.button("Guardar Subconjuntos"):
-        subconjuntos = []
-        errores = []
+        entradas = [sub1, sub2, sub3, sub4]
+        vacios = [i+1 for i, s in enumerate(entradas) if s.strip() == ""]
 
-        for idx, s in enumerate([sub1,sub2,sub3,sub4],start=1):
-            try:
-                arr = np.array([int(x.strip()) for x in s.split(",") if x.strip() !=""])
-                if not np.all(np.isin(arr,conjunto)):
-                    errores.append(f"Subconjunto {idx} contiene elementos que no están en el conjunto principal.")
-                else:
-                    subconjuntos.append(arr)
-            except ValueError:
-                errores.append(f"Subconjunto {idx} tiene elementos no válidos.")
-        
-        if errores:
-            for e in errores:
-                st.error(e)
+        if vacios:
+            st.error(f"❌ Los siguientes subconjuntos están vacíos: {', '.join(map(str, vacios))}")
         else:
-            st.session_state["subconjuntos"] = subconjuntos
+            subconjuntos = []
+            errores = []
 
-            data = {
-                "Usuario": [usuario]*4,
-                "ConjuntoPrincipal": [",".join(map(str,conjunto))]*4,
-                "SubConjunto": [f"S{i+1}" for i in range(4)],
-                "Elementos": [",".join(map(str,arr)) for arr in subconjuntos]
-            }
+            for idx, s in enumerate(entradas, start=1):
+                try:
+                    arr = np.array([int(x.strip()) for x in s.split(",") if x.strip() != ""])
+                    if not np.all(np.isin(arr, conjunto)):
+                        errores.append(f"Subconjunto {idx} contiene elementos que no están en el conjunto principal.")
+                    else:
+                        subconjuntos.append(arr)
+                except ValueError:
+                    errores.append(f"Subconjunto {idx} tiene elementos no válidos.")
 
-            df = pd.DataFrame(data)
-            df.to_csv(ruta_csv,index=False,mode="a", header=not os.path.exists(ruta_csv))
-            st.success(f"SubConjuntos guardados correctamente en '{ruta_csv}'!")
-            st.dataframe(df)
+            if errores:
+                for e in errores:
+                    st.error(e)
+            else:
+                st.session_state["subconjuntos"] = subconjuntos
+
+                data = {
+                    "Usuario": [st.session_state["usuario"]] * 4,
+                    "ConjuntoPrincipal": [",".join(map(str, conjunto))] * 4,
+                    "SubConjunto": [f"S{i+1}" for i in range(4)],
+                    "Elementos": [",".join(map(str, arr)) for arr in subconjuntos]
+                }
+
+                df = pd.DataFrame(data)
+                df.to_csv(ruta_csv, index=False, mode="a", header=not os.path.exists(ruta_csv))
+                st.success(f"SubConjuntos guardados correctamente en '{ruta_csv}'!")
+                st.dataframe(df)

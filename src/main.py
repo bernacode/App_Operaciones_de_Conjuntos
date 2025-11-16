@@ -1,3 +1,11 @@
+import os 
+import sys
+
+BASE_DIR = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+
+conjuntos_path = os.path.join(BASE_DIR, 'data', 'conjuntos.csv')
+usuarios_path = os.path.join(BASE_DIR, 'data', 'usuarios.csv')
+
 import streamlit as st
 from streamlit_option_menu import option_menu
 
@@ -23,13 +31,6 @@ from interfaces.login import login
 from interfaces.establecer_subconjuntos import establecer_subconjuntos
 from interfaces.principal import pagina_principal
 from interfaces.resultados import resultados
-
-def cargar_css(ruta_archivo):
-    with open(ruta_archivo,"r") as f:
-        css = f.read()
-    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
-
-cargar_css("assets/style.css")
 
 # Login
 if not st.session_state["logueado"]:
