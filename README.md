@@ -4,7 +4,6 @@
 ![Streamlit Badge](https://img.shields.io/badge/Framework-Streamlit-red?style=flat-square&logo=streamlit)
 ![NumPy Badge](https://img.shields.io/badge/Computing-NumPy-orange?style=flat-square&logo=numpy)
 ![Pandas Badge](https://img.shields.io/badge/Data-Pandas-lightgrey?style=flat-square&logo=pandas)
-![License Badge](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 Este proyecto es una aplicación interactiva en **Streamlit** que permite gestionar un conjunto principal y 4 subconjuntos por usuario. Los usuarios pueden iniciar sesión, ingresar sus subconjuntos y guardarlos en un archivo CSV.
 
