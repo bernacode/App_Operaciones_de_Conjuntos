@@ -1,8 +1,10 @@
 import os 
 import sys
 
+# BASE_DIR será la carpeta donde está main.py, incluso si ejecutas desde .bat o PyInstaller
 BASE_DIR = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
 
+# Archivos de datos
 conjuntos_path = os.path.join(BASE_DIR, 'data', 'conjuntos.csv')
 usuarios_path = os.path.join(BASE_DIR, 'data', 'usuarios.csv')
 
