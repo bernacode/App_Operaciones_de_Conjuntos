@@ -104,6 +104,7 @@ streamlit run src/main.py
 
 <details>
 <summary>📋 Ver archivo requirements.txt</summary>
+
 ```txt
 streamlit==1.51.0
 pandas==2.2.3
@@ -113,6 +114,7 @@ pillow==11.1.0
 pydeck==0.9.1
 streamlit-option-menu==0.4.0
 ```
+
 </details>
 
 ---
