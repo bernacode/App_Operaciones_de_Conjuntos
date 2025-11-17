@@ -2,10 +2,7 @@
 
 ![Python Streamlit Badge](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)
 ![Streamlit Badge](https://img.shields.io/badge/Framework-Streamlit-red?style=flat-square&logo=streamlit)
-<<<<<<< HEAD
 ![NumPy Badge](https://img.shields.io/badge/Computing-NumPy-orange?style=flat-square&logo=numpy)
-=======
->>>>>>> bd8e26218dd19bf197ef498b9b1aee6e71c8b405
 ![Pandas Badge](https://img.shields.io/badge/Data-Pandas-lightgrey?style=flat-square&logo=pandas)
 
 Este proyecto es una aplicación interactiva en **Streamlit** que permite gestionar un conjunto principal y 4 subconjuntos por usuario. Los usuarios pueden iniciar sesión, ingresar sus subconjuntos y guardarlos en un archivo CSV.
@@ -27,19 +24,11 @@ Este proyecto es una aplicación interactiva en **Streamlit** que permite gestio
 1. Extrae el proyecto en cualquier carpeta
 2. Abre la carpeta `launcher/`
 3. Haz doble clic en `abrir_web.exe` (Windows) para abrir la app directamente en tu navegador:
-<<<<<<< HEAD
 
 > 🔗 **URL:** https://app-conjuntos.streamlit.app
 
 ### ⚙️ Opción 2: Usando el .bat (Alternativa)
 
-=======
-   
-> 🔗 **URL:** https://app-conjuntos.streamlit.app
-
-### ⚙️ Opción 2: Usando el .bat (Alternativa)
-
->>>>>>> bd8e26218dd19bf197ef498b9b1aee6e71c8b405
 1. Abre la carpeta `launcher/`
 2. Haz doble clic en `abrir_web.bat`
 3. La app se abrirá en el navegador y la ventana mostrará un mensaje de ejecución
