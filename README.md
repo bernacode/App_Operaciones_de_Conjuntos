@@ -113,10 +113,9 @@ altair==5.5.0
 pillow==11.1.0
 pydeck==0.9.1
 streamlit-option-menu==0.4.0
-</details>
 ```
 
----
+## </details>
 
 ## 📝 Autor
 
